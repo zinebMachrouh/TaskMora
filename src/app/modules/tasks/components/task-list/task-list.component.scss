@@ -1,0 +1,176 @@
+.task-list{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  height: 100%;
+
+  .task-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2{
+      font-weight: 600;
+      letter-spacing: 1px;
+      font-size: 1.3rem;
+      color: var(--grey);
+    }
+
+    .actions{
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+
+      .search{
+        background-color: var(--white);
+        border: none;
+        border-radius: 200px;
+        padding: 0.5rem 1rem;
+        display: flex;
+        border: 1px solid #e0e0e0;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+
+        input{
+          border: none;
+          outline: none;
+          background-color: var(--white);
+        }
+
+        button{
+          color: var(--grey);
+          opacity: 0.5;
+        }
+      }
+
+      .add{
+        background-color: var(--secondary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 200px;
+        cursor: pointer;
+      }
+    }
+  }
+  .row{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    height: 100%;
+
+    .column{
+      background-color: var(--white);
+      width: 35%;
+      height: 100%;
+      border-radius: 7px;
+      overflow: auto;
+      position: relative;
+
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      ::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+
+      h4{
+        font-weight: 600;
+        font-size: 0.8rem;
+        color: #84a3a5;
+        padding: 1rem 0.5rem 0.7rem;
+        position: sticky;
+        top: 0;
+        background-color: var(--white);
+        width: 100%;
+      }
+
+      .card{
+        background-color: var(--platinum);
+        border-radius: 7px;
+        padding: 0.5rem 0.3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        margin: 0.3rem 0.5rem;
+
+        .card-body {
+          width: 100%;
+          height: fit-content;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          padding: 0 5px;
+
+          .card-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+
+            h5{
+              font-weight: 600;
+              font-size: 0.9rem;
+              color: var(--black);
+              width: 95%;
+            }
+            button{
+              color: #fc1212;
+              border: none;
+              cursor: pointer;
+              width: 5%;
+            }
+          }
+
+          .card-text{
+            font-size: 0.8rem;
+            color: var(--grey);
+          }
+
+          .pills{
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+
+            .pill{
+              color: var(--secondary);
+              background-color: #C9D7FB;
+              padding: 0.2rem 0.5rem;
+              border-radius: 200px;
+              font-size: 0.8rem;
+            }
+
+            .High{
+              color: #ca1616 !important;
+              background-color: #FECACA !important;
+            }
+
+            .Medium{
+              color: #fcaa12 !important;
+              background-color: #fdf3d2 !important;
+            }
+
+            .Low{
+              color: #189c18 !important;
+              background-color: #d2fdd2 !important;
+            }
+          }
+
+          .date{
+            font-size: 0.75rem;
+            margin-top: 5px;
+            color: var(--grey);
+            font-weight: 600;
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+}

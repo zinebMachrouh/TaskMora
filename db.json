@@ -1,0 +1,50 @@
+{
+  "tasks": [
+    {
+      "id": "ba63e218-8371-4e99-8d22-407bd5171327",
+      "title": "Task 1",
+      "description": "Description 1",
+      "dueDate": "2024-12-31",
+      "priority": "High",
+      "status": "ToDo",
+      "categoryId": "1700a765-0908-4bb5-b2dc-5d1ed0b7f4bb"
+    },
+    {
+      "id": "ba63e218-8371-4e99-8d22-407bd5171328",
+      "title": "Task 2",
+      "description": "Description 2",
+      "dueDate": "2024-12-31",
+      "priority": "Medium",
+      "status": "Doing",
+      "categoryId": "1700a765-0908-4bb5-b2dc-5d1ed0b7f4bc"
+    },
+    {
+      "id": "ba63e218-8371-4e99-8d22-407bd5171329",
+      "title": "Task 3",
+      "description": "Description 3",
+      "dueDate": "2024-12-31",
+      "priority": "Low",
+      "status": "Done",
+      "categoryId": "1700a765-0908-4bb5-b2dc-5d1ed0b7f4bb"
+    },
+    {
+      "id": "ba63e218-8371-4e99-8d22-407bd5171330",
+      "title": "Task 4",
+      "description": "Description 4",
+      "dueDate": "2024-12-31",
+      "priority": "High",
+      "status": "ToDo",
+      "categoryId": "1700a765-0908-4bb5-b2dc-5d1ed0b7f4bc"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1700a765-0908-4bb5-b2dc-5d1ed0b7f4bb",
+      "name": "Category 1"
+    },
+    {
+      "id": "1700a765-0908-4bb5-b2dc-5d1ed0b7f4bc",
+      "name": "Category 2"
+    }
+  ]
+}

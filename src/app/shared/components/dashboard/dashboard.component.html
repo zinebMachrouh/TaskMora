@@ -1,0 +1,25 @@
+<main>
+  <header>
+    <h1>
+      <!-- <img ngSrc="assets/icon.png" alt="icon" fill/> -->
+      TaskMora
+    </h1>
+    <nav>
+      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/mytasks">Tasks</a>
+      <a routerLink="/profile">Profile</a>
+      <a routerLink="/settings">Settings</a>
+      <a routerLink="/login">Login</a>
+      <a routerLink="/register">Register</a>
+    </nav>
+  </header>
+  <article>
+    <div class="left">
+      <app-task-list></app-task-list>
+    </div>
+    <div class="right">
+      <app-category-list></app-category-list>
+      <app-stats></app-stats>
+    </div>
+  </article>
+</main>
