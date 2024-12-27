@@ -31,7 +31,8 @@ export class TaskListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadTasks();
-    this.categoryService.getAllCategories().subscribe(categories => {
+    this.loadCategories();
+    this.categoryService.categories$.subscribe(categories => {
       this.categories = categories;
     });
 
@@ -51,6 +52,18 @@ export class TaskListComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error fetching tasks:', err);
+      },
+    });
+  }
+
+  loadCategories(): void {
+    this.categoryService.getAllCategories();
+    this.categoryService.getCategories().subscribe({
+      next: (categories) => {
+        this.categories = categories;
+      },
+      error: (err) => {
+        console.error('Error fetching categories:', err);
       },
     });
   }
@@ -129,5 +142,4 @@ export class TaskListComponent implements OnInit {
     const taskDueDate = new Date(dueDate);
     return taskDueDate < today;
   }
-
 }

@@ -1,50 +1,57 @@
 {
   "tasks": [
     {
-      "id": "ba63e218-8371-4e99-8d22-407bd5171327",
       "title": "Task 1",
       "description": "Description 1",
+      "categoryId": "6d9a",
+      "priority": "Low",
+      "status": "Doing",
       "dueDate": "2024-12-31",
-      "priority": "High",
-      "status": "ToDo",
-      "categoryId": "1700a765-0908-4bb5-b2dc-5d1ed0b7f4bb"
+      "id": "ba63e218-8371-4e99-8d22-407bd5171327"
     },
     {
       "title": "Task 2",
       "description": "Description 2",
-      "categoryId": "1700a765-0908-4bb5-b2dc-5d1ed0b7f4bc",
+      "categoryId": "4db6",
       "priority": "Medium",
       "status": "Done",
       "dueDate": "2024-12-31",
       "id": "ba63e218-8371-4e99-8d22-407bd5171328"
     },
     {
-      "id": "ba63e218-8371-4e99-8d22-407bd5171330",
       "title": "Task 4",
       "description": "Description 4",
-      "dueDate": "2024-06-05",
+      "categoryId": "4db6",
       "priority": "High",
       "status": "ToDo",
-      "categoryId": "1700a765-0908-4bb5-b2dc-5d1ed0b7f4bc"
-    },
-    {
-      "title": "Complete Brief",
-      "description": "this brief is amazing",
-      "categoryId": "1700a765-0908-4bb5-b2dc-5d1ed0b7f4bb",
-      "priority": "High",
-      "status": "Doing",
-      "dueDate": "2024-12-27",
-      "id": "82dc"
+      "dueDate": "2024-12-30",
+      "id": "ba63e218-8371-4e99-8d22-407bd5171330"
     }
   ],
   "categories": [
     {
-      "id": "1700a765-0908-4bb5-b2dc-5d1ed0b7f4bb",
-      "name": "Category 1"
+      "id": "6d9a",
+      "name": "Scrum"
     },
     {
-      "id": "1700a765-0908-4bb5-b2dc-5d1ed0b7f4bc",
-      "name": "Category 2"
+      "id": "4db6",
+      "name": "Ruby"
+    },
+    {
+      "id": "9e1c",
+      "name": "Gail"
+    },
+    {
+      "id": "b9e0",
+      "name": "Rubix"
+    },
+    {
+      "id": "8554",
+      "name": "LOL"
+    },
+    {
+      "id": "3e4f",
+      "name": "Mila"
     }
   ]
 }

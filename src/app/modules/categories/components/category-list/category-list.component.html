@@ -1,3 +1,26 @@
-<section class="category-list">
-  <h2>Categories</h2>
-</section>
+<div class="category-list">
+  <h2>Category List</h2>
+
+  <div *ngIf="categories.length > 0; else noCategories" class="list">
+    <ul>
+      <li *ngFor="let category of categories">
+        <form (ngSubmit)="editCategory(category)" #categoryForm="ngForm">
+          <input type="text" name="name" [(ngModel)]="category.name" required>
+        </form>
+        <button (click)="deleteCategory(category.id)"><i class="fa-solid fa-xmark"></i></button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="fade"></div>
+  <div class="add-category">
+    <form (ngSubmit)="addCategory()" #categoryForm="ngForm">
+      <input type="text" name="name" [(ngModel)]="newCategory" required placeholder="Enter Category Name">
+      <button type="submit" [disabled]="categoryForm.invalid"><i class="fa-solid fa-plus"></i></button>
+    </form>
+  </div>
+
+  <ng-template #noCategories>
+    <p>No categories available.</p>
+  </ng-template>
+</div>
