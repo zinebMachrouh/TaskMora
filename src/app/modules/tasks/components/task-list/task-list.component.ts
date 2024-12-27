@@ -2,17 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { Task } from '../../models/task.model';
 import { CommonModule } from '@angular/common';
-import {CategoryService} from '../../../categories/services/category.service';
-import {Category} from '../../../categories/models/task.model';
-import {FormControl, ReactiveFormsModule} from '@angular/forms';
-import {debounceTime, distinctUntilChanged} from 'rxjs';
+import { CategoryService } from '../../../categories/services/category.service';
+import { Category } from '../../../categories/models/task.model';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
+import { TaskFormComponent } from '../task-form/task-form.component';
 
 @Component({
   selector: 'app-task-list',
   standalone: true,
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TaskFormComponent
   ],
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.scss'],
@@ -22,8 +24,10 @@ export class TaskListComponent implements OnInit {
   categories: Category[] = [];
   searchControl = new FormControl('');
   originalTasks: Task[] = [];
+  showModal = false;
+  selectedTask: Task | null = null;
 
-  constructor(private taskService: TaskService, private categoryService : CategoryService) {}
+  constructor(private taskService: TaskService, private categoryService: CategoryService) {}
 
   ngOnInit(): void {
     this.loadTasks();
@@ -44,8 +48,6 @@ export class TaskListComponent implements OnInit {
       next: (tasks) => {
         this.tasks = tasks;
         this.originalTasks = tasks;
-
-        console.log('Tasks loaded:', this.tasks);
       },
       error: (err) => {
         console.error('Error fetching tasks:', err);
@@ -54,12 +56,9 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteTask(taskId: string): void {
-    const confirmed = confirm('Are you sure you want to delete this task?');
-
-    if (confirmed) {
+    if (confirm('Are you sure you want to delete this task?')) {
       this.taskService.deleteTask(taskId).subscribe({
         next: () => {
-          console.log(`Task ${taskId} deleted.`);
           this.loadTasks();
         },
         error: (err) => {
@@ -95,4 +94,40 @@ export class TaskListComponent implements OnInit {
       task.description.toLowerCase().includes(term)
     );
   }
+
+  openModal(): void {
+    this.selectedTask = null;
+    this.showModal = true;
+  }
+
+  editTask(task: Task): void {
+    this.selectedTask = task;
+    this.showModal = true;
+  }
+
+  onCloseModal(): void {
+    this.showModal = false;
+  }
+
+  onSaveTask(taskData: Partial<Task>): void {
+    if (this.selectedTask) {
+      this.taskService.updateTask(this.selectedTask.id, taskData).subscribe({
+        next: () => this.loadTasks(),
+        error: (err) => console.error('Error updating task:', err),
+      });
+    } else {
+      this.taskService.addTask(taskData).subscribe({
+        next: () => this.loadTasks(),
+        error: (err) => console.error('Error creating task:', err),
+      });
+    }
+    this.onCloseModal();
+  }
+
+  isOverdue(dueDate: string): boolean {
+    const today = new Date();
+    const taskDueDate = new Date(dueDate);
+    return taskDueDate < today;
+  }
+
 }

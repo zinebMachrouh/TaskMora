@@ -1,0 +1,118 @@
+.modal-bg{
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+
+  .close{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: var(--white);
+    cursor: pointer;
+  }
+
+  .modal{
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 40%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    h2{
+      font-size: 1.5rem;
+      color: var(--grey);
+      font-weight: 600;
+      text-align: center;
+    }
+    form{
+      .text-danger{
+        color: red;
+        font-size: 0.8rem;
+      }
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      label{
+        font-size: 1.2rem;
+        color: var(--grey);
+      }
+
+      input {
+        padding: 0.5rem 1rem;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        outline: none;
+      }
+      textarea{
+        padding: 0.5rem 1rem;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        outline: none;
+        resize: none;
+      }
+
+      select{
+        padding: 0.5rem 1rem;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        outline: none;
+      }
+
+      .group{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        div{
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+        }
+      }
+    }
+
+    .actions{
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+
+      button{
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 7px;
+        cursor: pointer;
+        width: 20%;
+      }
+
+      .cancel{
+        background-color: var(--grey);
+        color: var(--white);
+      }
+
+      .save{
+        background-color: var(--secondary);
+        color: var(--white);
+      }
+    }
+  }
+}

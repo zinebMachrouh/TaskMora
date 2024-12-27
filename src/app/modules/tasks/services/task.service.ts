@@ -15,11 +15,11 @@ export class TaskService {
     return this.http.get<Task[]>(this.baseUrl);
   }
 
-  addTask(task: Task): Observable<Task> {
+  addTask(task: Partial<Task>): Observable<Task> {
     return this.http.post<Task>(this.baseUrl, task);
   }
 
-  updateTask(taskId: string, updatedTask: Task): Observable<Task> {
+  updateTask(taskId: string, updatedTask: Partial<Task>): Observable<Task> {
     return this.http.put<Task>(`${this.baseUrl}/${taskId}`, updatedTask);
   }
 

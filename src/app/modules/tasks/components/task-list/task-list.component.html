@@ -6,17 +6,17 @@
         <input type="text" [formControl]="searchControl" placeholder="Search tasks"/>
         <button class="btn btn-primary"><i class="fa-solid fa-search"></i></button>
       </div>
-      <button class="btn btn-primary add">+</button>
+      <button class="btn btn-primary add" (click)="openModal()">+</button>
     </div>
   </div>
   <div class="row flex">
     <!-- To Do Column -->
     <div class="col-md-4 column">
       <h4 class="text-primary">TO DO <span>{{getTasksByStatus('ToDo').length}}</span></h4>
-      <div *ngFor="let task of getTasksByStatus('ToDo')" class="card mb-2">
+      <div *ngFor="let task of getTasksByStatus('ToDo')" class="card mb-2" [ngClass]="{ 'overdue': isOverdue(task.dueDate) }">
         <div class="card-body">
           <div class="card-title">
-            <h5>{{ task.title }}</h5>
+            <h5 (click)="editTask(task)">{{ task.title }}</h5>
             <div class="actions">
               <button type="button" (click)="deleteTask(task.id)"><i class="fa-solid fa-xmark"></i></button>
             </div>
@@ -26,17 +26,17 @@
             <span class="{{ task.priority}} pill">{{ task.priority }} </span>
             <span class="pill category">{{getCategoryName(task.categoryId)}}</span>
           </div>
-          <span class="date"><i class="fa-solid fa-calendar-days"></i> {{ task.dueDate | date: 'dd/MM/yyyy' }}</span>        </div>
+          <span class="date" [ngClass]="{ 'overdue-date': isOverdue(task.dueDate) }"><i class="fa-solid fa-calendar-days"></i> {{ task.dueDate | date: 'dd/MM/yyyy' }}</span>        </div>
       </div>
     </div>
 
     <!-- In Progress Column -->
     <div class="col-md-4 column">
       <h4 class="text-warning">IN PROGRESS <span>{{getTasksByStatus('Doing').length}}</span></h4>
-      <div *ngFor="let task of getTasksByStatus('Doing')" class="card mb-2">
+      <div *ngFor="let task of getTasksByStatus('Doing')" class="card mb-2" [ngClass]="{ 'overdue': isOverdue(task.dueDate) }">
         <div class="card-body">
           <div class="card-title">
-            <h5>{{ task.title }}</h5>
+            <h5 (click)="editTask(task)">{{ task.title }}</h5>
             <div class="actions">
               <button type="button" (click)="deleteTask(task.id)"><i class="fa-solid fa-xmark"></i></button>
             </div>
@@ -46,7 +46,7 @@
             <span class="{{ task.priority}} pill">{{ task.priority }} </span>
             <span class="pill category">{{getCategoryName(task.categoryId)}}</span>
           </div>
-          <span class="date"><i class="fa-solid fa-calendar-days"></i> {{ task.dueDate | date: 'dd/MM/yyyy' }}</span>
+          <span class="date" [ngClass]="{ 'overdue-date': isOverdue(task.dueDate) }"><i class="fa-solid fa-calendar-days"></i> {{ task.dueDate | date: 'dd/MM/yyyy' }}</span>
         </div>
       </div>
     </div>
@@ -54,10 +54,10 @@
     <!-- Done Column -->
     <div class="col-md-4 column">
       <h4 class="text-success">DONE <span>{{getTasksByStatus('Done').length}}</span></h4>
-      <div *ngFor="let task of getTasksByStatus('Done')" class="card mb-2">
+      <div *ngFor="let task of getTasksByStatus('Done')" class="card mb-2" [ngClass]="{ 'overdue': isOverdue(task.dueDate) }">
         <div class="card-body">
           <div class="card-title">
-            <h5>{{ task.title }}</h5>
+            <h5 (click)="editTask(task)">{{ task.title }}</h5>
             <div class="actions">
               <button type="button" (click)="deleteTask(task.id)"><i class="fa-solid fa-xmark"></i></button>
             </div>
@@ -67,9 +67,17 @@
             <span class="{{ task.priority}} pill">{{ task.priority }} </span>
             <span class="pill category">{{getCategoryName(task.categoryId)}}</span>
           </div>
-          <span class="date"><i class="fa-solid fa-calendar-days"></i> {{ task.dueDate | date: 'dd/MM/yyyy' }}</span>
+          <span class="date" [ngClass]="{ 'overdue-date': isOverdue(task.dueDate) }"><i class="fa-solid fa-calendar-days"></i> {{ task.dueDate | date: 'dd/MM/yyyy' }}</span>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<app-task-form
+  [isVisible]="showModal"
+  [categories]="categories"
+  [task]="selectedTask"
+  (close)="onCloseModal()"
+  (save)="onSaveTask($event)">
+</app-task-form>

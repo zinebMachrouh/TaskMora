@@ -10,9 +10,6 @@ import {DashboardComponent} from './shared/components/dashboard/dashboard.compon
 export const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   {path: 'dashboard', component: DashboardComponent},
-  { path: 'tasks', component: TaskListComponent },
-  { path: 'tasks/create', component: TaskFormComponent },
-  { path: 'tasks/edit/:id', component: TaskFormComponent },
   { path: 'stats', component: StatsComponent },
   { path: 'categories', component: CategoryListComponent }
 ];

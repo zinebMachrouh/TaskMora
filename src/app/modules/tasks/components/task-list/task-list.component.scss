@@ -119,6 +119,12 @@
               font-size: 0.9rem;
               color: var(--black);
               width: 95%;
+
+              &:hover{
+                text-decoration: underline ;
+                transition: all ease-in-out 0.3s;
+                cursor: pointer;
+              }
             }
             button{
               color: #fc1212;
@@ -173,4 +179,12 @@
       }
     }
   }
+}
+
+.overdue {
+  opacity: 0.5;
+}
+
+.overdue-date {
+  color: red !important;
 }
