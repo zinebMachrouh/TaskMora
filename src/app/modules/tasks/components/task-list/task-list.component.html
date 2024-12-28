@@ -24,7 +24,11 @@
           <p class="card-text">{{ task.description }}</p>
           <div class="pills">
             <span class="{{ task.priority}} pill">{{ task.priority }} </span>
-            <span class="pill category">{{getCategoryName(task.categoryId)}}</span>
+            <span
+              *ngIf="getCategoryName(task.categoryId)"
+              class="pill category">
+              {{ getCategoryName(task.categoryId) }}
+            </span>
           </div>
           <span class="date" [ngClass]="{ 'overdue-date': isOverdue(task.dueDate) }"><i class="fa-solid fa-calendar-days"></i> {{ task.dueDate | date: 'dd/MM/yyyy' }}</span>        </div>
       </div>
@@ -44,7 +48,11 @@
           <p class="card-text">{{ task.description }}</p>
           <div class="pills">
             <span class="{{ task.priority}} pill">{{ task.priority }} </span>
-            <span class="pill category">{{getCategoryName(task.categoryId)}}</span>
+            <span
+              *ngIf="getCategoryName(task.categoryId)"
+              class="pill category">
+              {{ getCategoryName(task.categoryId) }}
+            </span>
           </div>
           <span class="date" [ngClass]="{ 'overdue-date': isOverdue(task.dueDate) }"><i class="fa-solid fa-calendar-days"></i> {{ task.dueDate | date: 'dd/MM/yyyy' }}</span>
         </div>
@@ -65,7 +73,11 @@
           <p class="card-text">{{ task.description }}</p>
           <div class="pills">
             <span class="{{ task.priority}} pill">{{ task.priority }} </span>
-            <span class="pill category">{{getCategoryName(task.categoryId)}}</span>
+              <span
+                *ngIf="getCategoryName(task.categoryId)"
+                class="pill category">
+                {{ getCategoryName(task.categoryId) }}
+              </span>
           </div>
           <span class="date" [ngClass]="{ 'overdue-date': isOverdue(task.dueDate) }"><i class="fa-solid fa-calendar-days"></i> {{ task.dueDate | date: 'dd/MM/yyyy' }}</span>
         </div>
