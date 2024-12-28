@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 4rem;
+  border-bottom: rgba(75, 87, 101, 0.1) 2px solid;
+
+  h1{
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-family: "Fascinate", serif;
+    color: #282829;
+
+    span{
+      color: var(--secondary);
+    }
+  }
+  .openSideBar{
+    display: none;
+  }
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: rgba(39, 95, 236, 1);
+    color: white;
+    padding: 1rem;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+
+    &.visible {
+      right: 0;
+    }
+
+    ul{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .close-btn {
+      background: transparent;
+      color: white;
+      border: none;
+      margin-top: auto;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      &:hover {
+        color: #282829;
+      }
+    }
+  }
+
+  .desktop-nav{
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+
+    a{
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 1rem 0.2rem;
+      color: var(--black);
+    }
+    a.active{
+      font-weight: 600;
+      border-bottom: 2px solid var(--black);
+    }
+  }
+
+  .login{
+    padding: 0.3rem 1.5rem;
+    border-radius: 10px;
+    color: var(--black);
+    font-weight: 500;
+    border: 2px solid var(--black);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover{
+      background-color: var(--black);
+      color: var(--white);
+    }
+  }
+}
+
+article{
+  padding: 1.5rem 4rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  height: 90vh;
+  flex-wrap: wrap;
+
+  .chart-container{
+    width: 49%;
+    height: 49%;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: #275FEC 1px solid;
+    border-radius: 10px;
+
+    &:hover{
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transform: scale(1.02);
+      transition: all 0.3s ease;
+    }
+
+    canvas{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+
+
+
+@media screen and (max-width: 1100px){
+  header{
+    padding: 0.5rem 2rem;
+
+    .openSideBar{
+      display: block;
+      cursor: pointer;
+    }
+    h1{
+      margin-top: 0px;
+    }
+    .desktop-nav{
+      display: none;
+    }
+    .login{
+      display: none;
+    }
+  }
+  article{
+    padding: 1.5rem 2rem 1rem;
+    flex-direction: column;
+    height: fit-content;
+    gap: 1rem;
+
+
+  }
+}

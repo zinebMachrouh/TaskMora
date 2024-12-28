@@ -1,1 +1,63 @@
-<p>statistics works!</p>
+<main>
+  <header>
+    <h1>Task<span>Mora</span></h1>
+    <nav class="desktop-nav">
+      <a routerLink="/dashboard" >Dashboard</a>
+      <a routerLink="/statistics" routerLinkActive="active">Statistics</a>
+      <a routerLink="/login">About</a>
+      <a routerLink="/register">Contact</a>
+      <a routerLink="/settings">Settings</a>
+    </nav>
+
+    <button type="button" routerLink="/login" class="login">LogIn</button>
+
+    <button type="button" (click)="toggleSidebar()" class="openSideBar"><i class="fa-solid fa-bars-staggered"></i></button>
+    <nav class="mobile-nav" [class.visible]="isVisible || openSidebar">
+      <ul>
+        <a routerLink="/dashboard">Dashboard</a>
+        <a routerLink="/statistics" routerLinkActive="active">Statistics</a>
+        <a routerLink="/login" routerLinkActive="active">About</a>
+        <a routerLink="/register" routerLinkActive="active">Contact</a>
+        <a routerLink="/settings" routerLinkActive="active">Settings</a>
+      </ul>
+      <button class="close-btn" (click)="toggleSidebar()"><i class="fa-solid fa-xmark"></i></button>
+    </nav>
+  </header>
+  <article>
+    <div class="chart-container">
+      <canvas baseChart
+              [data]="taskPriorityChart"
+              [options]="chartOptions"
+              [type]="'bar'">
+      </canvas>
+    </div>
+
+    <!-- Task Status Chart -->
+    <div class="chart-container">
+      <canvas baseChart
+              [data]="taskStatusChart"
+              [options]="chartOptions"
+              [type]="'pie'">
+      </canvas>
+    </div>
+
+    <!-- Task Category Chart -->
+    <div class="chart-container">
+      <canvas baseChart
+              [data]="taskCategoryChart"
+              [options]="chartOptions"
+              [type]="'bar'">
+      </canvas>
+    </div>
+
+    <!-- Task Time Chart -->
+    <div class="chart-container">
+      <canvas baseChart
+              [data]="taskTimeChart"
+              [options]="chartOptions"
+              [type]="'line'">
+      </canvas>
+    </div>
+
+  </article>
+</main>
