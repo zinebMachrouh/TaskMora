@@ -31,27 +31,43 @@
   "categories": [
     {
       "id": "6d9a",
-      "name": "Scrum"
+      "name": "Work"
     },
     {
       "id": "4db6",
-      "name": "Ruby"
+      "name": "Personal"
     },
     {
       "id": "9e1c",
-      "name": "Gail"
+      "name": "Fitness"
     },
     {
       "id": "b9e0",
-      "name": "Rubix"
+      "name": "Shopping"
     },
     {
       "id": "8554",
-      "name": "LOL"
+      "name": "Travel"
     },
     {
       "id": "3e4f",
-      "name": "Mila"
+      "name": "Education"
+    },
+    {
+      "id": "6250",
+      "name": "Entertainment"
+    },
+    {
+      "id": "7821",
+      "name": "Health"
+    },
+    {
+      "id": "726f",
+      "name": "Finance"
+    },
+    {
+      "id": "9e2e",
+      "name": "Chores"
     }
   ]
 }
