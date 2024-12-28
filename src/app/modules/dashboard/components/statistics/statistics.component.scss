@@ -120,18 +120,33 @@ article{
   gap: 1rem;
   width: 100%;
   height: 90vh;
+  flex-wrap: wrap;
 
+  .chart-container{
+    width: 49%;
+    height: 49%;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: #275FEC 1px solid;
+    border-radius: 10px;
 
-  .left{
-    width: 75%;
-    height: 100%;
-  }
+    &:hover{
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transform: scale(1.02);
+      transition: all 0.3s ease;
+    }
 
-  .right{
-    width: 25%;
-    height: 100%;
+    canvas{
+      width: 100%;
+      height: 100%;
+    }
   }
 }
+
+
+
 
 @media screen and (max-width: 1100px){
   header{
@@ -157,15 +172,9 @@ article{
     height: fit-content;
     gap: 1rem;
 
-    .left{
+    .chart-container{
       width: 100%;
-    }
-
-    .right{
-      width: 100%;
-      display: flex;
-      flex-direction: column-reverse;
-      gap: 1rem;
+      height: 60%;
     }
   }
 }

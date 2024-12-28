@@ -4,7 +4,7 @@
       "title": "Task 1",
       "description": "Description 1",
       "categoryId": "6d9a",
-      "priority": "Low",
+      "priority": "Medium",
       "status": "Doing",
       "dueDate": "2024-12-31",
       "id": "ba63e218-8371-4e99-8d22-407bd5171327"
@@ -12,8 +12,8 @@
     {
       "title": "Task 2",
       "description": "Description 2",
-      "categoryId": "4db6",
-      "priority": "Medium",
+      "categoryId": "7821",
+      "priority": "Low",
       "status": "Done",
       "dueDate": "2024-12-31",
       "id": "ba63e218-8371-4e99-8d22-407bd5171328"
@@ -24,34 +24,50 @@
       "categoryId": "4db6",
       "priority": "High",
       "status": "ToDo",
-      "dueDate": "2024-12-30",
+      "dueDate": "2024-12-26",
       "id": "ba63e218-8371-4e99-8d22-407bd5171330"
     }
   ],
   "categories": [
     {
       "id": "6d9a",
-      "name": "Scrum"
+      "name": "Work"
     },
     {
       "id": "4db6",
-      "name": "Ruby"
+      "name": "Personal"
     },
     {
       "id": "9e1c",
-      "name": "Gail"
+      "name": "Fitness"
     },
     {
       "id": "b9e0",
-      "name": "Rubix"
+      "name": "Shopping"
     },
     {
       "id": "8554",
-      "name": "LOL"
+      "name": "Travel"
     },
     {
       "id": "3e4f",
-      "name": "Mila"
+      "name": "Education"
+    },
+    {
+      "id": "6250",
+      "name": "Entertainment"
+    },
+    {
+      "id": "7821",
+      "name": "Health"
+    },
+    {
+      "id": "726f",
+      "name": "Finance"
+    },
+    {
+      "id": "9e2e",
+      "name": "Chores"
     }
   ]
 }
