@@ -1,15 +1,26 @@
 <main>
   <header>
-    <h1>
-      Task<img src="logo.png" alt="TaskMora Logo" />ora
-    </h1>
-    <nav>
+    <h1>Task<span>Mora</span></h1>
+    <nav class="desktop-nav">
       <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-      <a routerLink="/mytasks">Tasks</a>
-      <a routerLink="/profile">Profile</a>
+      <a routerLink="/statistics">Statistics</a>
+      <a routerLink="/login">About</a>
+      <a routerLink="/register">Contact</a>
       <a routerLink="/settings">Settings</a>
-      <a routerLink="/login">Login</a>
-      <a routerLink="/register">Register</a>
+    </nav>
+
+    <button type="button" routerLink="/login" class="login">LogIn</button>
+
+    <button type="button" (click)="toggleSidebar()" class="openSideBar"><i class="fa-solid fa-bars-staggered"></i></button>
+    <nav class="mobile-nav" [class.visible]="isVisible || openSidebar">
+      <ul>
+        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        <a routerLink="/statistics" routerLinkActive="active">Statistics</a>
+        <a routerLink="/login" routerLinkActive="active">About</a>
+        <a routerLink="/register" routerLinkActive="active">Contact</a>
+        <a routerLink="/settings" routerLinkActive="active">Settings</a>
+      </ul>
+      <button class="close-btn" (click)="toggleSidebar()"><i class="fa-solid fa-xmark"></i></button>
     </nav>
   </header>
   <article>
